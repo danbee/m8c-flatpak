@@ -1,0 +1,32 @@
+app-id: fi.laamaa.m8c
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+command: m8c
+
+modules:
+  - name: m8c
+    buildsystem: simple
+    build-commands:
+      - make
+      - sudo make install
+    sources:
+      - type: git
+        url: https://github.com/laamaa/m8c.git
+        branch: main
+    modules:
+      - shared-modules/SDL2/SDL2-no-libdecor.json
+
+      - name: libserial
+        buildsystem: simple
+        build-commands:
+          - make -f Makefile.dist
+          - "./configure --prefix=/app --without-doxygen --without-python3 --disable-tests"
+          - make
+          - make install
+        sources:
+          - type: git
+            url: https://github.com/crayzeewulf/libserial.git
+            branch: master
+        modules:
+          - modules/boost.yaml

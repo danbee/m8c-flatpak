@@ -1,0 +1,11 @@
+name: boost
+buildsystem: simple
+sources:
+  - type: archive
+    url: https://downloads.sourceforge.net/boost/boost/1.76.0/boost_1_76_0.tar.bz2
+    sha256: f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41
+build-commands:
+  - "./bootstrap.sh --prefix=/app --with-libraries=system"
+  - "./b2 headers"
+  - "./b2 -j$FLATPAK_BUILDER_N_JOBS install variant=release cxxstd=17 --layout=system"
+
