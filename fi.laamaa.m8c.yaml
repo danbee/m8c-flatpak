@@ -13,6 +13,8 @@ modules:
       - type: git
         url: https://github.com/laamaa/m8c.git
         branch: main
+      - type: file
+        source: fi.laamaa.m8c.png
     modules:
       - shared-modules/SDL2/SDL2-no-libdecor.json
 
