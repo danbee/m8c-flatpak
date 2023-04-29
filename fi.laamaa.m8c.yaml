@@ -14,7 +14,9 @@ modules:
         url: https://github.com/laamaa/m8c.git
         branch: main
       - type: file
-        source: fi.laamaa.m8c.png
+        path: m8c.png
+      - type: file
+        path: m8c.desktop
     modules:
       - shared-modules/SDL2/SDL2-no-libdecor.json
 
@@ -28,3 +30,9 @@ modules:
           - type: git
             url: git://sigrok.org/libserialport
             branch: master
+
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --device=all
