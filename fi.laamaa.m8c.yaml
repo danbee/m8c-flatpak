@@ -8,8 +8,7 @@ modules:
   - name: m8c
     buildsystem: simple
     build-commands:
-      - make
-      - sudo make install
+      - PREFIX=/app make install
     sources:
       - type: git
         url: https://github.com/laamaa/m8c.git
@@ -17,16 +16,13 @@ modules:
     modules:
       - shared-modules/SDL2/SDL2-no-libdecor.json
 
-      - name: libserial
+      - name: libserialport
         buildsystem: simple
         build-commands:
-          - make -f Makefile.dist
-          - "./configure --prefix=/app --without-doxygen --without-python3 --disable-tests"
-          - make
+          - ./autogen.sh
+          - ./configure --prefix=/app
           - make install
         sources:
           - type: git
-            url: https://github.com/crayzeewulf/libserial.git
+            url: git://sigrok.org/libserialport
             branch: master
-        modules:
-          - modules/boost.yaml
