@@ -4,6 +4,7 @@
   <name>M8c</name>
   <summary>Client for Dirtywave M8 headless</summary>
   <project_license>MIT</project_license>
+  <metadata_license>CC0-1.0</metadata_license>
   <description>
     <p>
        M8c is a client for the Dirtywave M8 hardware tracker running in headless mode

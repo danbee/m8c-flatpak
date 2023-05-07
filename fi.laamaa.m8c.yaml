@@ -14,9 +14,11 @@ modules:
         url: https://github.com/laamaa/m8c.git
         branch: main
       - type: file
-        path: fi.laamaa.m8c.png
+        path: fi.laamaa.m8c.appdata.xml
       - type: file
         path: fi.laamaa.m8c.desktop
+      - type: file
+        path: fi.laamaa.m8c.png
     post-install:
       - install -D -m644 fi.laamaa.m8c.appdata.xml /app/share/appdata/fi.laamaa.m8c.appdata.xml
       - install -D -m644 fi.laamaa.m8c.desktop /app/share/applications/fi.laamaa.m8c.desktop
